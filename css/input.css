@@ -1,0 +1,630 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+    font-family: "Satisfy",cursive;
+}
+
+h1{
+    font-family: "Great Vibes",cursive;
+}
+
+.links a {
+    position: relative;
+    text-decoration: none;
+}
+
+.links a::before {
+    content: '';
+    position: absolute;
+    width: 90%;
+    height: 1.5px;
+    background-color: rgb(0, 0, 0);
+    bottom: 0.3rem;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+}
+
+.links a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.hero-bg-overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5; 
+}
+
+
+.hero-bg-overlay > * {
+    position: relative;
+    z-index: 10;
+}
+
+
+
+@keyframes animatedBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.animated-background {
+    animation: animatedBackground 20s ease infinite;
+    background: linear-gradient(270deg, #d3ad82, #d198d1, #99becc, #df9b95,  #9ddae2);
+    background-size: 400% 400%;
+    position: relative;
+    z-index: 0;
+}
+
+.animated-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: linear-gradient(270deg, rgba(228, 211, 211, 0.5), rgba(194, 182, 182, 0.5), rgba(175, 168, 168, 0.5), rgba(194, 182, 182, 0.5));
+    background-size: 400% 400%;
+    animation: animatedBackground 30s ease infinite;
+    opacity: 0.5; /* Adjust the opacity to make it more like a watermark */
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background:transparent;
+}
+
+.content {
+    flex: 1 1 300px; 
+    order: 2; /* Content on the right on larger screens */
+    text-shadow: 0 4px 8px rgba(231, 7, 7, 0.1);
+    background: transparent;
+    margin: 20px; /* Ensure spacing on smaller screens */
+}
+.image-container {
+    flex: 1 1 300px; /* Allows image container to grow and shrink */
+    order: 1; /* Image on the left on larger screens */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Shadow effect */
+    margin: 20px; /* Updated margin for consistency */
+}
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
+/* Larger screens */
+@media screen and (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+    .content, .image-container {
+        flex-basis: calc(50% - 100px); /* Adjust size while accounting for margins */
+    }
+}
+.containerif {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.faq-header {
+    text-align: center;
+}
+.faq {
+    display: flex;
+    flex-direction: column;
+}
+.faq-item {
+    background:transparent;
+    padding: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+.faq-item:nth-child(odd) {
+    align-self: flex-start;
+    border-radius: 8px 50px 8px 50px;
+}
+.faq-item:nth-child(even) {
+    align-self: flex-end;
+    border-radius: 50px 8px 50px 8px;
+}
+@media (max-width: 768px) {
+    .faq-item {
+        width: 100%;
+        align-self: center;
+        border-radius: 8px;
+        /* Ensuring box-shadow remains consistent on smaller screens */
+    }
+}
+
+
+/* footer */
+
+
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 40px 0;
+    font-size: 0.8em;
+}
+.fa-envelope{
+    font-size: 2em; /* Size of icons */
+    color: #D14836; /* Gmail's red color, if you want to style it like Gmail */
+}
+/* Style for the email icon with a Gmail-like gradient */
+.fa-linkedin-in {
+
+    font-size: 2em;
+
+}
+
+/* Additional styles for the Bootstrap icons */
+.bi {
+    display: inline-block;
+    vertical-align: middle;
+    fill: currentColor; /* This will take the color from the 'color' CSS property */
+}
+
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    /* Make sure there's space at the bottom for the copyright text */
+    padding-bottom: 60px; /* Adjust this value based on your copyright text size */
+}
+
+.footer-social, .footer-bottom {
+    text-align: center;
+    margin-bottom: 20px;
+    
+}
+
+.para-name {
+    font-family: "Satisfy", cursive;
+    font-size: 1.5em; /* Increased font size */
+    margin-top: 1rem;/* Space above the paragraph */
+     
+    margin-left: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Instagram gradient */
+ footer .fa-instagram {
+    background: radial-gradient(circle farthest-side at 35% 90%, #fec564, transparent 50%),
+    radial-gradient(circle farthest-corner at 0% 140%, #fec564, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 0% -25%, #5258cf, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 100% 0%, #893dc2, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+    linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; 
+    display: inline-block;
+}
+ 
+footer .fa-facebook-f {
+     font-size: 2em;
+}
+
+
+/* Ensure the a tag doesn't have underline text decoration */
+.footer-social a {
+    text-decoration: none;
+    padding: 10px;
+    
+}
+footer img{
+    margin-left: 3rem;
+}
+
+/* Adjust the size of the icon if needed */
+footer .fa-instagram {
+    font-size: 2em; /* Adjust size as needed */
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center; /* Center the logo and paragraph */
+    align-items: center;
+    flex-direction: column;
+     /* Stack logo and paragraph */
+}
+.footer-links {
+    /* Align your logo and text to the left if needed */
+    text-align: left;
+}
+
+.footer-column img {
+    width: 150px; /* Adjust width as necessary */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.footer-social {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-right: 4.3rem;
+    
+}
+.footer-social a {
+    display: inline-block;
+    margin-left: 10px; /* Adjust space between icons */
+     
+}
+.footer-bottom {
+    clear: both;
+    color: #fff;
+}
+
+.social-icon {
+    display: inline-block;
+    width: 40px; /* Increased icon size */
+    height: 40px; /* Increased icon size */
+    background-color: #777;
+    color: white;
+    margin: 0 10px; /* Increased spacing between icons */
+    line-height: 40px; /* Align to the new height */
+    text-align: center;
+    border-radius: 50%;
+    font-size: 24px; /* Increased icon font size */
+}
+
+.footer-bottom {
+    position: absolute; /* Position absolutely within the relative parent */
+    bottom: 0; /* Stick to the bottom */
+    left: 0; /* Start from the left */
+    width: 100%; /* Span the full width of the footer */
+    text-align: center; /* Center the text */
+    padding: 10px 0; /* Padding at the top and bottom */
+    margin: 0; /* Reset any margins */
+}.gmail{
+    font-size: 1.5em;
+}
+.fa-whatsapp{
+    font-size: 2em;
+    color: #25D366;;
+}
+.fa-phone-alt{
+    color: lightblue;
+}
+.footer-contact {
+    color: white; /* Match the text color with the footer */
+    display: flex;
+    flex-direction: column; /* Stack the contact details vertically */
+    align-items: start; /* Center-align the items for consistency */
+    margin-right: 80px;
+    padding: 20px; /* Provide some padding around the contact details */
+}
+
+.footer-contact h5 {
+    margin-top: 0;
+    margin-bottom: 15px; /* Space between the heading and the contact details */
+    margin-right: 30px;
+    font-size: 2.5rem;
+    font-family: "Satisfy", cursive;
+}
+.footer-center{
+font-family: "Satisfy",cursive;
+font-size: 1.4rem;
+display: flex;
+align-items: start;
+justify-content: start;
+margin-right: 6rem;
+
+}
+.footer-contact p {
+    margin: 5px 0; /* Reduce space between phone and email lines */
+    display: flex;
+    align-items: center; /* Align the icon and text */
+    font-size: 1.5em;
+    font-family: "Open Sans", sans-serif;
+}
+
+.footer-contact i {
+    margin-right: 10px; /* Space between the icon and text */
+    font-size: 1em;
+    
+}
+.footer-contact p:nth-child(2){
+    margin-right: 30px;
+}
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align the items to the right */
+    justify-content: center;
+    font-family: cursive;
+}
+
+
+
+/* General styles remain the same */
+
+@media (max-width: 768px) {
+    /* Adjust the footer container for mobile layout */
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Center the image */
+    .footer-links .footer-column img {
+        width: 150px; /* or your preferred size */
+        height: auto;
+        margin: 0 auto 20px; /* Adds bottom margin for space below the image */
+    }
+
+    /* Center the text in the footer-center */
+    .footer-center {
+        text-align: center;
+        order: 2; /* Ensures text block comes after the image */
+        margin: 20px 0; /* Adds margin for spacing */
+    }
+
+    /* Adjust the footer-right alignment */
+    .footer-right {
+        order: 3; /* Ensures this section is at the bottom */
+        width: 100%; /* Take the full width to center align its content */
+        text-align: center;
+    }
+
+    .footer-right .footer-contact, 
+    .footer-right .footer-social {
+        justify-content: center;
+    }
+
+    .footer-social a {
+        margin: 0 5px; /* Adjusts spacing between social icons */
+    }
+
+    /* This ensures that the footer doesn't overlap any content above it */
+    footer {
+        margin-top: 20px;
+    }
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px; /* This adds space between items */
+    padding: 10px;
+  }
+  
+  /* Base gallery item styles */
+  .gallery-item {
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease, border 0.3s ease;
+  }
+  
+  /* Unique dimensions for each image and hover effect */
+  .gallery-item:nth-child(2) { width: 300px; height: 400px; }
+  .gallery-item:nth-child(3) { width: 300px; height: 400px; }
+  .gallery-item:nth-child(4) { width: 300px; height: 400px; }
+  .gallery-item:nth-child(1) { width: 300px; height: 400px; }
+  .gallery-item:nth-child(5) { width: 300px; height: 400px; }
+  .gallery-item:nth-child(6) { width: 300px; height: 400px; }
+  .gallery-item:nth-child(7) { width: 300px; height: 400px; }
+  .gallery-item:nth-child(8) { width: 300px; height: 400px; }
+  .gallery-item:nth-child(9) { width: 300px; height: 400px; }
+  .gallery-item:nth-child(10) { width: 300px; height: 400px; }
+  .gallery-item:nth-child(11) { width: 300px; height: 400px; }
+  /* Adjust video size if necessary, or use the same approach for consistency */
+  
+  /* Hover effect for images */
+  .gallery-item:hover {
+    transform: scale(1.05);
+    /* border: 3px solid #000; */
+  }
+  
+  /* Ensuring video fits in the container */
+  .video {
+    width: 100%; /* Adjust based on your layout */
+    height: auto;
+  }
+  /* Existing styles */
+  
+  /* Overlay when an image is clicked */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    display: none; /* Changed from visibility and opacity for simplicity */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* High z-index to ensure it's above other content */
+  }
+  
+  /* Style for zoomed-in image */
+  .zoomed-in {
+    position: relative;
+    /* /* width: 500px !important;  */
+    /* height: 500px !important;  */
+    object-fit: contain !important;
+    max-width: 80%; 
+    transition: transform 0.3s ease;
+    z-index: 10;
+  }
+  
+  /* Show the overlay when active */
+  .overlay.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .container {
+    display: flex;
+    min-height: 100vh;
+    
+}
+
+.image-side {
+    background: url('/images/portrait-beautiful-woman-creamy-dress.jpg') no-repeat center center;
+    background-size: contain; 
+    flex: 0 1 auto; 
+    width: 50%; 
+    position: relative;
+    margin-left: 5%; 
+    transition: transform 0.3s ease-in-out;
+}
+
+/* .image-side:hover {
+    transform: scale(1.1); 
+} */
+
+.content-side {
+    flex: 1; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.content {
+    width: 50%;
+    text-align: right;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+.container h1 {
+    animation: fadeIn 1.5s ease-out forwards;
+    margin-bottom: 1.5rem;
+    color: #000;
+    text-align: center; /* Center header text */
+  }
+
+.services-list {
+    list-style: none;
+    padding: 0;
+}
+
+.services-list li {
+    background-color: #ffffff;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.services-list li:hover {
+    transform: scale(1.05);
+}
+
+.container a {
+    text-decoration: none;
+    color: #333;
+    width: 50%;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px; /* Add some padding */
+        box-sizing: border-box; /* Include padding and border in the element's total width */
+        width: 100%; /* Adjust width to ensure it's within the viewport */
+        background: linear-gradient(to bottom, rgb(10, 10, 50) 0%, rgb(60, 10, 60) 100%);
+    }
+
+    .image-side, .content-side {
+        width: 100%; /* Full width */
+        margin-left: 0; /* Reset margin */
+    }
+
+    .image-side {
+        order: -1; /* Image goes on top */
+        min-height: 200px; /* Adjust height as needed */
+        background-size: cover; /* Adjust background size as needed */
+    }
+
+    .content-side {
+        width: 100%; /* Full width for content side */
+    }
+
+    .content {
+        width: 100%; /* Full width for content */
+        text-align: center;
+    }
+
+   .container h1 {
+        font-size: 2rem;
+       color: #ffffff;/* Adjust font size for smaller screens */
+    }
+
+    .services-list li {
+        /* Adjust styles as needed */
+    }
+
+    #particle-canvas {
+        display: none; /* Hide the canvas on mobile */
+    }
+}
+#particle-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgb(10, 10, 50) 0%, rgb(60, 10, 60) 100%);
+    z-index: -1; 
+  }
+
+
+ 
+  
+  .faded-div-black{
+    background: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 75%, #ffffff 100%);
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+  
+    to {
+      transform: translateX(calc(-100% - 1rem));
+    }
+  }
+  
+  .scroll {
+    animation: scroll 60s linear infinite;
+  }
+  
+  .scroll-image {
+    animation: scroll 50s linear infinite;
+  }
+
+  .img-img{
+    background-image: url("../images/gl1.jpg")
+  }
