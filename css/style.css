@@ -1897,22 +1897,22 @@ img {
 }
 
 .img-img-one{
-  background-image: url("/images/guj.jpg")
+  background-image: url("./images/guj.jpg")
 }
 .img-img-two{
-  background-image: url("/images/_L0A5243.JPG")
+  background-image: url("./images/_L0A5243.JPG")
 }
 .img-img-three{
-  background-image: url("/images/rith.png")
+  background-image: url("./images/rith.png")
 }
 .img-img-four{
-  background-image: url("/images/babyshower.jpg")
+  background-image: url("./images/babyshower.jpg")
 }
 .img-img-five{
-  background-image: url("/images/gl2.png")
+  background-image: url("./images/gl2.png")
 }
 .img-img-six{
-  background-image: url("/images/gl3.png")
+  background-image: url("./images/gl3.png")
 }
 
 @media (min-width: 768px) {
